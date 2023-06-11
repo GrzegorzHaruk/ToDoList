@@ -1,0 +1,52 @@
+.item {
+  padding: 5px;
+  border-radius: 2px;
+  margin: 5px 5px 5px 5px;
+}
+
+.itemContent {
+  display: inline;
+  color: black;
+  margin-left: 15px;
+}
+
+.itemContentCompleted {
+  display: inline;
+  color: black;
+  margin-left: 15px;
+  text-decoration: line-through;
+}
+
+.deleteBtn {
+  float: right;
+  margin-right: 3%;
+  border-radius: 20px;
+  width: 20px;
+  height: 17px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  box-shadow: 0 0 3px rgb(255, 101, 101);
+}
+
+.completedBtn {
+  float: left;
+  vertical-align: middle;
+  border-radius: 20px;
+  width: 20px;
+  height: 17px;
+  color: black;
+  text-align: center;
+  background-color: rgb(249, 255, 250);
+  border: none;
+  box-shadow: 0 0 3px rgb(0, 168, 34);
+}
+
+.deleteBtn:hover {
+  box-shadow: 0 0 7px rgb(253, 57, 57);
+  background-color: rgb(255, 0, 0);
+}
+
+.completedBtn:hover {
+  box-shadow: 0 0 6px rgb(0, 168, 34);
+  background-color: rgb(121, 236, 144);;
+}

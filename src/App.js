@@ -1,6 +1,12 @@
+import React from "react";
+import MainContainer from "./Components/MainContainer/MainContainer"
+import styles from "./App.module.scss"
+
 function App() {
   return (
-    <div></div>
+    <div className={styles.appBackground}>
+      <MainContainer/>
+    </div>
   );
 }
 
