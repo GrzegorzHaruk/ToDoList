@@ -3,15 +3,15 @@ import styles from "./NewItemBar.module.scss"
 
 const NewItemBar = ({ addItemHandler }) => {
 
-    const [toDoItem, setToDoItem] = useState('');
+    const [toDoItemContent, setToDoItemContent] = useState('');
     
     const onChangeHandler = (e) => {
-        setToDoItem(e.target.value);
+        setToDoItemContent(e.target.value);
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addItemHandler(toDoItem);
+        addItemHandler(toDoItemContent);
     };
     
     return (
@@ -21,7 +21,7 @@ const NewItemBar = ({ addItemHandler }) => {
                 placeholder="your new item"
                 className={styles.bar}
                 onChange={onChangeHandler}
-                value={toDoItem}
+                value={toDoItemContent}
             />
         </form>
     )

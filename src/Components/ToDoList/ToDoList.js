@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import ToDoItem from "./ToDoItem/ToDoItem"
 import SummaryBar from "../SummaryBar/SummaryBar";
 import styles from "./ToDoList.module.scss"
 
 const ToDoList = ({ toDoList, onDeleteHandler }) => {
 
-    const list = toDoList.map(item => {
+    const list = toDoList.map(toDoItem => {
         return (
             <ToDoItem
-                value={item}
+                toDoItem={toDoItem}
                 onDelete={onDeleteHandler}
-                isCompleted={false}
             />
         )
     });

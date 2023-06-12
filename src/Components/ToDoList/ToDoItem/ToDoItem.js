@@ -1,23 +1,22 @@
 import { useState } from "react";
 import styles from "./ToDoItem.module.scss"
 
-const Item = ({ value, isCompleted, onDelete }) => {
+const Item = ({toDoItem, onDelete }) => {
 
     const onDeleteHandler = () => {
-        onDelete(value);
+        onDelete(toDoItem);
     }
 
-    const [completed, setCompleted] = useState(isCompleted);
+    const [completed, setCompleted] = useState(toDoItem.isCompleted);
 
     const hadleTaskCompleted = () => {
         setCompleted(prevState => !prevState);
-        console.log(completed)
     }
-
+    
     return (
         <div className={completed ? styles.itemCompleted : styles.item}>
             <button onClick={hadleTaskCompleted} className={styles.completedBtn}></button>
-            <p className={completed? styles.itemContentCompleted : styles.itemContent}>{value}</p>
+            <p className={completed? styles.itemContentCompleted : styles.itemContent}>{toDoItem.content}</p>
             <button onClick={onDeleteHandler} className={styles.deleteBtn}></button>
         </div>
     )

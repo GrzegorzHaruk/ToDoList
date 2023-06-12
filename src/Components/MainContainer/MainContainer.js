@@ -7,29 +7,40 @@ import styles from "./MainContaine.module.scss"
 
 const MainContainer = () => {
 
-    const [toDoList, setToDoList] = useState(['item', 'item2'])
-    
-    function addItem(item){
-        setToDoList(prevState => [...prevState, item])        
+    const [toDoList, setToDoList] = useState(
+        [{
+            id: 1,
+            content: 'item1',
+            isCompleted: false,
+        },
+        {
+            id: 2,
+            content: 'item2',
+            isCompleted: true,
+        },
+        {
+            id: 3,
+            content: 'test',
+            isCompleted: false,
+        }]
+    )
+
+    function addItem(itetoDoItemContent) {
+        const id = Date.now();
+        setToDoList(prevState => [...prevState, { id: id, content: itetoDoItemContent, isCompleted: false}])
     }
 
-    function removeItem(item){        
+    function removeItem(toDoItem) {
         setToDoList(prevState => {
-            return prevState.filter(remove => remove !== item)
+            return prevState.filter(remove => remove.id !== toDoItem.id)
         })
     }
 
-    function toggleDisplay(){
-        setToDoList(prevState => {
-            return prevState.filter()
-        })
-    }
-    
-    return(
+    return (
         <div className={styles.container}>
-            <Header/>
-            <NewItemBar addItemHandler={addItem}/>   
-            <ToDoList toDoList={toDoList} onDeleteHandler={removeItem}/>
+            <Header />
+            <NewItemBar addItemHandler={addItem} />
+            <ToDoList toDoList={toDoList} onDeleteHandler={removeItem} />
         </div>
     )
 }
