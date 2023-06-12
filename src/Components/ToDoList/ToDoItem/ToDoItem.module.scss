@@ -1,7 +1,19 @@
 .item {
+  height: 30px;
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 10px;
   margin: 5px 5px 5px 5px;
+  background-color: rgb(193, 229, 239);
+  box-shadow: 0 0 10px rgb(139, 145, 147);
+}
+
+.itemCompleted {
+  height: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 5px 5px 5px 5px;
+  background-color: rgb(207, 236, 219);
+  box-shadow: 0 0 10px rgb(139, 145, 147);
 }
 
 .itemContent {
@@ -12,41 +24,40 @@
 
 .itemContentCompleted {
   display: inline;
-  color: black;
+  color:rgb(155, 153, 153);
   margin-left: 15px;
-  text-decoration: line-through;
 }
 
-.deleteBtn {
+.deleteBtn {  
   float: right;
-  margin-right: 3%;
+  margin-right: 10px;
+  margin-top: 5px;
   border-radius: 20px;
   width: 20px;
   height: 17px;
   background-color: rgb(255, 255, 255);
-  border: none;
+  border: solid 1px rgb(239, 233, 233);
   box-shadow: 0 0 3px rgb(255, 101, 101);
 }
 
 .completedBtn {
-  float: left;
-  vertical-align: middle;
+  float: inline-start;
+  margin-top: 5px;
   border-radius: 20px;
   width: 20px;
   height: 17px;
-  color: black;
-  text-align: center;
-  background-color: rgb(249, 255, 250);
-  border: none;
-  box-shadow: 0 0 3px rgb(0, 168, 34);
+  background-color: rgb(254, 254, 254);
+  border: solid 1px rgb(204, 236, 218);
+  box-shadow: 0 0 3px rgb(177, 204, 182);
 }
 
 .deleteBtn:hover {
   box-shadow: 0 0 7px rgb(253, 57, 57);
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(242, 235, 235);
 }
 
 .completedBtn:hover {
-  box-shadow: 0 0 6px rgb(0, 168, 34);
-  background-color: rgb(121, 236, 144);;
+  box-shadow: 0 0 6px rgb(38, 193, 69);
+  background-color: rgb(225, 238, 228);
+  ;
 }

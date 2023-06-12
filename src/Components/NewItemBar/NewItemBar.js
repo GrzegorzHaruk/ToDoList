@@ -1,17 +1,17 @@
 import { useState } from "react";
 import styles from "./NewItemBar.module.scss"
 
-const NewItemBar = ({ onSubmitHandler }) => {
+const NewItemBar = ({ addItemHandler }) => {
 
-    const [toDo, setToDo] = useState('');
+    const [toDoItem, setToDoItem] = useState('');
     
     const onChangeHandler = (e) => {
-        setToDo(e.target.value);
+        setToDoItem(e.target.value);
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        onSubmitHandler(toDo);
+        addItemHandler(toDoItem);
     };
     
     return (
@@ -21,7 +21,7 @@ const NewItemBar = ({ onSubmitHandler }) => {
                 placeholder="your new item"
                 className={styles.bar}
                 onChange={onChangeHandler}
-                value={toDo}
+                value={toDoItem}
             />
         </form>
     )

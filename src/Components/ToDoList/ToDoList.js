@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ToDoItem from "./ToDoItem/ToDoItem"
 import SummaryBar from "../SummaryBar/SummaryBar";
 import styles from "./ToDoList.module.scss"
 
-function ToDoList({ toDoList, onDeleteHandler }) {
+const ToDoList = ({ toDoList, onDeleteHandler }) => {
 
     const list = toDoList.map(item => {
         return (

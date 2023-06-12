@@ -18,11 +18,17 @@ const MainContainer = () => {
             return prevState.filter(remove => remove !== item)
         })
     }
+
+    function toggleDisplay(){
+        setToDoList(prevState => {
+            return prevState.filter()
+        })
+    }
     
     return(
         <div className={styles.container}>
             <Header/>
-            <NewItemBar onSubmitHandler={addItem}/>   
+            <NewItemBar addItemHandler={addItem}/>   
             <ToDoList toDoList={toDoList} onDeleteHandler={removeItem}/>
         </div>
     )
