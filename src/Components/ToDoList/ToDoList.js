@@ -2,13 +2,16 @@ import ToDoItem from "./ToDoItem/ToDoItem"
 import SummaryBar from "../SummaryBar/SummaryBar";
 import styles from "./ToDoList.module.scss"
 
-const ToDoList = ({ toDoList, onDeleteHandler }) => {
+import { useSelector } from "react-redux";
 
+const ToDoList = () => {
+
+    const toDoList = useSelector((state) => state.toDoList.value);
+    
     const list = toDoList.map(toDoItem => {
         return (
             <ToDoItem
                 toDoItem={toDoItem}
-                onDelete={onDeleteHandler}
             />
         )
     });
@@ -17,6 +20,7 @@ const ToDoList = ({ toDoList, onDeleteHandler }) => {
         <div className={styles.module}>
             {list}
             <SummaryBar itemsCount={list.length} />
+            <div onClick={()=> console.log(toDoList)} >CLICK</div>
         </div>
     )
 }

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import styles from "./NewItemBar.module.scss"
 
-const NewItemBar = ({ addItemHandler }) => {
+import { useDispatch } from "react-redux"; 
+import { addItem } from "../ToDoList/toDoListSlice";
+
+const NewItemBar = () => {
 
     const [toDoItemContent, setToDoItemContent] = useState('');
+    const dispatch = useDispatch();
     
     const onChangeHandler = (e) => {
         setToDoItemContent(e.target.value);
@@ -11,7 +15,7 @@ const NewItemBar = ({ addItemHandler }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addItemHandler(toDoItemContent);
+        dispatch(addItem(toDoItemContent))
     };
     
     return (
