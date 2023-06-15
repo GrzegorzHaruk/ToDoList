@@ -1,7 +1,7 @@
 import Header from "../Header/Header"
 import NewItemBar from "../NewItemBar/NewItemBar"
 import ToDoList from "../ToDoList/ToDoList"
-import styles from "./MainContaine.module.scss"
+import styles from "./MainContainer.module.scss"
 
 const MainContainer = () => {
 

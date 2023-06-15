@@ -1,26 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Item from "./ToDoItem/ToDoItem";
+import { GetFilter, GetList, SetFilter, SetList } from "../../Repositories/ToDoListRepository";
 
 const initialToDoList = [{
     id: 1,
-    content: 'do some stuff',
+    content: 'active',
     isCompleted: false,
 },
 {
     id: 2,
-    content: 'do another stuff',
+    content: 'completed',
     isCompleted: true,
 },
 {
     id: 3,
-    content: 'control from slice',
+    content: 'active',
     isCompleted: false,
 }]
 
 export const toDoListSlice = createSlice({
     name: 'toDoList',
     initialState: {
-        value: initialToDoList,
+        toDoList: GetList(),        
+        filter: GetFilter(),
     },
     reducers: {
         addItem: (state, action) => {
@@ -29,36 +30,26 @@ export const toDoListSlice = createSlice({
                 content: action.payload,
                 isCompleted: false,
             }
-            state.value.push(newItem)
+            state.toDoList.push(newItem)
+            SetList(state.toDoList);
+        },        
+        removeItem: (state, action) => {
+            console.log(action.payload)
+            state.toDoList = state.toDoList.filter(remove => remove.id !== action.payload)
+            SetList(state.toDoList);
         },
-
-        removeItem: (state, action) => ({
-            ...state, 
-            value: state.value.filter(remove => remove.id !== action.payload)
-        }),
-
-        updateItem: (state, action) => ({
-            ...state,
-            value: state.value.map((item) => (item.id === action.payload.id ? { ...action.payload } : item))
-        }),
-
-        
-
-        // toggleFilter: (state, action) => ({
+        updateFilter: (state, action) => {            
+            state.filter = action.payload;  
+            SetFilter(state.filter);
+        },
+        toggleCompleted: (state, action) => {
             
-        //     ...state,
-        //     value: action.payload === 'Completed' ? state.value.filter(item => item.isCompleted) :
-        //             action.payload === 'Active' ? state.value.filter(item => !item.isCompleted) :
-        //             state.value
-        // }),
-
-        // toggleFilter: (state, action) => ({
-            
-        //     ...state,
-        //     value: state.value.filter(item => item.isCompleted === true)
-        // }),
+            const index = state.toDoList.findIndex(item=>item.id === action.payload.id);
+            state.toDoList[index].isCompleted = !state.toDoList[index].isCompleted;
+            SetList(state.toDoList);
+        },
     },
 })
 
-export const {addItem, removeItem, toggleFilter, updateItem} = toDoListSlice.actions;
+export const {addItem, removeItem, updateItem, updateFilter, toggleCompleted} = toDoListSlice.actions;
 export default toDoListSlice.reducer
